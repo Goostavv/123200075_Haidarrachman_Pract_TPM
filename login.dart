@@ -16,18 +16,14 @@ class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
+
+
 @override
 Widget build(BuildContext context) {
   return Scaffold(
       appBar: AppBar(
         leading: Icon(Icons.menu),
         title:Text("awikwok"),
-        actions: [
-          FlutterLogo(),
-          FlutterLogo(),
-          FlutterLogo(),
-
-        ],
       ),
       body: SingleChildScrollView(
           child: Column(
@@ -52,45 +48,73 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Login Page"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextField(
-              controller: _emailController,
-              decoration: InputDecoration(
-                hintText: "Email",
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(32.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(32.0),
+                  border: Border.all(
+                    color: Colors.grey,
+                    width: 2.0,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      FlutterLogo(),
+                      SizedBox(height: 16.0),
+                      TextField(
+                        controller: _emailController,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            borderSide: BorderSide.none,
+                          ),
+                          hintText: "Email",
+                          filled: true,
+                          fillColor: Colors.grey[200],
+                        ),
+                      ),
+                      SizedBox(height: 16.0),
+                      TextField(
+                        controller: _passwordController,
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            borderSide: BorderSide.none,
+                          ),
+                          hintText: "Password",
+                          filled: true,
+                          fillColor: Colors.grey[200],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
-            SizedBox(height: 16),
-            TextField(
-              controller: _passwordController,
-              obscureText: true,
-              decoration: InputDecoration(
-                hintText: "Password",
+              SizedBox(height: 16.0),
+              ElevatedButton(
+                onPressed: () {
+                  // Implement login functionality here
+                },
+                child: Text("Login"),
               ),
-            ),
-            SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                // Implement login functionality here
-              },
-              child: Text("Login"),
-            ),
-            TextButton(
-              onPressed: () {
-                // Implement forgot password functionality here
-              },
-              child: Text("Forgot Password?"),
-            ),
-          ],
+              TextButton(
+                onPressed: () {
+                  // Implement forgot password functionality here
+                },
+                child: Text("Forgot Password?"),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
-
